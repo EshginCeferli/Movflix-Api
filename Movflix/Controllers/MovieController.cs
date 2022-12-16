@@ -1,0 +1,92 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Service.Services.DTOs.Blog;
+using Service.Services.DTOs.Movie;
+using Service.Services.Interfaces;
+using System.ComponentModel.DataAnnotations;
+
+namespace Movflix.Controllers
+{
+    public class MovieController : AppController
+    {
+        private readonly IMovieService _movieService;
+
+        public MovieController(IMovieService movieService)
+        {
+            _movieService =  movieService;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] MovieCreateDto movieCreateDto)
+        {
+            await _movieService.CreateAsync(movieCreateDto);
+
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> Update([FromRoute][Required] int id, MovieUpdateDto movieUpdateDto)
+        {
+            try
+            {
+                await _movieService.UpdateAsync(id, movieUpdateDto);
+
+                return Ok(movieUpdateDto);
+            }
+            catch (NullReferenceException)
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete([Required] int id)
+        {
+            try
+            {
+                await _movieService.DeleteAsync(id);
+                return Ok();
+            }
+            catch (NullReferenceException)
+            {
+
+                return NotFound();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SoftDelete([Required] int id)
+        {
+            try
+            {
+                await _movieService.SoftDeleteAsync(id);
+                return Ok();
+            }
+            catch (NullReferenceException)
+            {
+
+                return NotFound();
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _movieService.GetAllAsync());
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get([Required] int id)
+        {
+            try
+            {
+                return Ok(await _movieService.GetByIdAsync(id));
+            }
+            catch (NullReferenceException)
+            {
+                return NotFound();
+            }
+        }
+
+    }
+}
