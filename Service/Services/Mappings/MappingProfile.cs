@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Entities;
 using Service.Services.DTOs.Blog;
+using Service.Services.DTOs.BlogImage;
 using Service.Services.DTOs.Movflix;
 using Service.Services.DTOs.Movie;
 using Service.Services.DTOs.MovieCategory;
@@ -18,6 +19,7 @@ namespace Service.Services.Mappings
             CreateMap<BlogCreateDto, Blog>().ReverseMap();
             CreateMap<BlogUpdateDto, Blog>().ReverseMap();
             CreateMap<BlogListDto, Blog>().ReverseMap();
+            CreateMap<BlogGetDto, Blog>().ReverseMap();
 
             CreateMap<MovieCreateDto, Movie>().ReverseMap();
             CreateMap<MovieUpdateDto, Movie>().ReverseMap();
@@ -25,12 +27,10 @@ namespace Service.Services.Mappings
 
 
             CreateMap<MovieCategoryCreateDto, MovieCategory>().ReverseMap();
-            CreateMap<MovieCategoryUpdateDto, MovieCategory>().ReverseMap();
-            //CreateMap<MovieCategoryGetAllDto, MovieCategory>().ReverseMap();
+            CreateMap<MovieCategoryUpdateDto, MovieCategory>().ReverseMap();            
             CreateMap<MovieCategoryListDto, MovieCategory>().ReverseMap();
 
-
-
+            CreateMap<BlogImageListDto, BlogImage>().ReverseMap();
         }
     }
 }

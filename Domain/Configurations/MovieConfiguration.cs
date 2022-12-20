@@ -9,12 +9,12 @@ namespace Domain.Configurations
         public void Configure(EntityTypeBuilder<Movie> builder)
         {
             builder.Property(m => m.Name).IsRequired();
-            builder.Property(m=>m.Poster).IsRequired();
+            builder.Property(m => m.Poster).IsRequired();
             builder.Property(m => m.Country).IsRequired();
-            builder.Property(m=>m.Description).IsRequired();
-            builder.Property(m=>m.Length).IsRequired();
+            builder.Property(m => m.Description).IsRequired();
+            builder.Property(m => m.Length).IsRequired();
             builder.Property(m => m.SoftDeleted).HasDefaultValue(false);
-            builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.UtcNow);         
+            builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.UtcNow);
 
             builder.HasQueryFilter(m => !m.SoftDeleted);
         }

@@ -72,7 +72,8 @@ namespace Movflix.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _categoryService.GetAllAsync());
+            var result = await _categoryService.GetAllAsync();
+            return Ok(result);
         }
 
         [HttpGet]

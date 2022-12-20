@@ -88,5 +88,11 @@ namespace Movflix.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Search(string? search)
+        {
+            return Ok(await _movieService.SearchAsync(search));
+        }
+
     }
 }

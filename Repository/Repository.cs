@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Repository.Data;
 using Repository.Interfaces;
+using System.Linq.Expressions;
 
 namespace Repository
 {
@@ -63,6 +64,11 @@ namespace Repository
         async Task<List<T>> IRepository<T>.GetAllAsync()
         {
             return await _entities.ToListAsync();
+        }
+
+        public async Task<List<T>> FindAllByExpressionAsync(Expression<Func<T, bool>> expression)
+        {
+            return await _entities.Where(expression).ToListAsync();
         }
     }
 }

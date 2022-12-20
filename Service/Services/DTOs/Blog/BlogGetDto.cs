@@ -1,14 +1,17 @@
 ﻿using Service.Services.DTOs.BlogImage;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Service.Services.DTOs.Blog
 {
-    public class BlogListDto
+    public class BlogGetDto
     {
-        public int Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? By { get; set; }
         public List<BlogImageListDto>? BlogImages { get; set; }
-        public DateTime CreateDate { get; set; }
     }
 }

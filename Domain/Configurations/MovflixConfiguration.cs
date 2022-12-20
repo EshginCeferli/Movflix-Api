@@ -1,7 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Reflection.Emit;
 
 namespace Domain.Configurations
 {
@@ -11,8 +10,8 @@ namespace Domain.Configurations
         {
             builder.Property(m => m.Name).IsRequired().HasMaxLength(100);
             builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.UtcNow);
-            builder.Property(m => m.Description).IsRequired();          
-          
+            builder.Property(m => m.Description).IsRequired();
+
             builder.HasQueryFilter(m => !m.SoftDeleted);
         }
     }

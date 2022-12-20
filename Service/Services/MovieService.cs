@@ -1,15 +1,8 @@
 ﻿using AutoMapper;
 using Domain.Entities;
-using Repository;
 using Repository.Interfaces;
-using Service.Services.DTOs.Movflix;
 using Service.Services.DTOs.Movie;
 using Service.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service.Services
 {
@@ -39,7 +32,7 @@ namespace Service.Services
 
         public async Task<List<MovieListDto>> GetAllAsync()
         {
-            var movieList = (await _repo.GetAllMoviesWithCategories());
+            var movieList = await _repo.GetAllMoviesWithCategories();
             return _mapper.Map<List<MovieListDto>>(movieList);
         }
 
@@ -48,13 +41,27 @@ namespace Service.Services
             return (await _repo.GetAsync(id));
         }
 
+        public async Task<List<MovieListDto>> SearchAsync(string? searchText)
+        {
+            List<Movie> searchDatas = new();
+
+            if (searchText != null)
+            {
+                searchDatas = await _repo.GetMoviesBySearch(searchText);
+            }
+            else
+            {
+                searchDatas = await _repo.GetAllMoviesWithCategories();
+            }
+
+            return _mapper.Map<List<MovieListDto>>(searchDatas);
+        }
+
         public async Task SoftDeleteAsync(int id)
         {
             var movie = await _repo.GetAsync(id);
 
             await _repo.SoftDeleteAsync(movie);
-
-
         }
 
         public async Task UpdateAsync(int id, MovieUpdateDto movieUpdateDto)
@@ -65,5 +72,7 @@ namespace Service.Services
 
             await _repo.UpdateAsync(dbMovie);
         }
+
+
     }
 }

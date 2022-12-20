@@ -1,12 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Domain.Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Domain.Configurations
 {
     public class MovieCategoryConfiguration : IEntityTypeConfiguration<MovieCategory>
     {
-       public void Configure(EntityTypeBuilder<MovieCategory> builder)
+        public void Configure(EntityTypeBuilder<MovieCategory> builder)
         {
             builder.Property(m => m.Name).IsRequired();
             builder.Property(m => m.SoftDeleted).HasDefaultValue(false);

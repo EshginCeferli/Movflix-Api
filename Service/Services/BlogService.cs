@@ -34,12 +34,15 @@ namespace Service.Services
 
         public async Task<List<BlogListDto>> GetAllAsync()
         {
-            return _mapper.Map<List<BlogListDto>>(await _repo.GetAllAsync());
+            return _mapper.Map<List<BlogListDto>>(await _repo.GetBlogWithImages());
         }
 
-        public async Task<Blog> GetByIdAsync(int id)
+        public async Task<BlogGetDto> GetByIdAsync(int id)
         {
-            return (await _repo.GetAsync(id));
+            var mappedBlog = _mapper.Map<BlogGetDto>(await _repo.GetBlogById(id));
+
+            return mappedBlog;
+            
         }
 
         public async Task SoftDeleteAsync(int id)
@@ -58,6 +61,6 @@ namespace Service.Services
             _mapper.Map(blogUpdateDto, dbBlog);
 
             await _repo.UpdateAsync(dbBlog);
-        }
+        }      
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using System.Linq.Expressions;
 
 namespace Repository.Interfaces
 {
@@ -10,5 +11,6 @@ namespace Repository.Interfaces
         Task UpdateAsync(T entity);
         Task SoftDeleteAsync(T entity);
         Task DeleteAsync(T entity);
+        Task<List<T>> FindAllByExpressionAsync(Expression<Func<T, bool>> expression);
     }
 }

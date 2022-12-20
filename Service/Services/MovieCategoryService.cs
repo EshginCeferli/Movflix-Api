@@ -1,14 +1,8 @@
 ﻿using AutoMapper;
 using Domain.Entities;
 using Repository.Interfaces;
-using Service.Services.DTOs.Movie;
 using Service.Services.DTOs.MovieCategory;
 using Service.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service.Services
 {
@@ -38,7 +32,10 @@ namespace Service.Services
 
         public async Task<List<MovieCategoryListDto>> GetAllAsync()
         {
-            return _mapper.Map<List<MovieCategoryListDto>>(await _repo.GetAllAsync());
+
+            var categories = await _repo.GetAllCategories();
+            var result = _mapper.Map<List<MovieCategoryListDto>>(categories);
+            return result;
         }
 
         public async Task<MovieCategory> GetByIdAsync(int id)
