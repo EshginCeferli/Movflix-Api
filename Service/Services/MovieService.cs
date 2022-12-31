@@ -36,9 +36,11 @@ namespace Service.Services
             return _mapper.Map<List<MovieListDto>>(movieList);
         }
 
-        public async Task<Movie> GetByIdAsync(int id)
+        public async Task<MovieGetDto> GetByIdAsync(int id)
         {
-            return (await _repo.GetAsync(id));
+            var mappedMovie = _mapper.Map<MovieGetDto>(await _repo.GetMovieById(id));
+
+            return mappedMovie;
         }
 
         public async Task<List<MovieListDto>> SearchAsync(string? searchText)
@@ -73,6 +75,6 @@ namespace Service.Services
             await _repo.UpdateAsync(dbMovie);
         }
 
-
+      
     }
 }

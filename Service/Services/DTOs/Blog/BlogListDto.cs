@@ -9,6 +9,6 @@ namespace Service.Services.DTOs.Blog
         public string? Description { get; set; }
         public string? By { get; set; }
         public List<BlogImageListDto>? BlogImages { get; set; }
-        public DateTime CreateDate { get; set; }
+        public string CreateDate { get; set; }
     }
 }

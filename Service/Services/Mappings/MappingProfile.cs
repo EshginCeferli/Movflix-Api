@@ -24,11 +24,13 @@ namespace Service.Services.Mappings
             CreateMap<MovieCreateDto, Movie>().ReverseMap();
             CreateMap<MovieUpdateDto, Movie>().ReverseMap();
             CreateMap<MovieListDto, Movie>().ReverseMap();
+            CreateMap<MovieGetDto, Movie>().ReverseMap();
 
 
             CreateMap<MovieCategoryCreateDto, MovieCategory>().ReverseMap();
             CreateMap<MovieCategoryUpdateDto, MovieCategory>().ReverseMap();            
             CreateMap<MovieCategoryListDto, MovieCategory>().ReverseMap();
+            
 
             CreateMap<BlogImageListDto, BlogImage>().ReverseMap();
         }

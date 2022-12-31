@@ -8,8 +8,10 @@ namespace Domain.Entities
         public string? Description { get; set; }
         public string? Poster { get; set; }
         public int Length { get; set; }
+        public int ReleaseYear { get; set; }
         public string? Country { get; set; }
         public MovieCategory? MovieCategory { get; set; }
         public int MovieCategoryId { get; set; }
+
     }
 }
