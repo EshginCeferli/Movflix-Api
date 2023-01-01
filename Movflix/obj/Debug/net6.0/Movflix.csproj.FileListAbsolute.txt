@@ -75,3 +75,9 @@ C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\obj\Debug\net6.0\refint\Movflix.d
 C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\obj\Debug\net6.0\Movflix.pdb
 C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\obj\Debug\net6.0\Movflix.genruntimeconfig.cache
 C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\obj\Debug\net6.0\ref\Movflix.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

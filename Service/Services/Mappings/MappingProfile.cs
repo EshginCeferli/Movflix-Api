@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Service.Services.DTOs.AppUser;
 using Service.Services.DTOs.Blog;
 using Service.Services.DTOs.BlogImage;
 using Service.Services.DTOs.Movflix;
@@ -33,6 +34,9 @@ namespace Service.Services.Mappings
             
 
             CreateMap<BlogImageListDto, BlogImage>().ReverseMap();
+
+            CreateMap<AppUser, RegisterDto>().ReverseMap();
+
         }
     }
 }
