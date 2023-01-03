@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "edDEk+T9/f08XY4l4BGFmpYX4pDcxyidt/x0RnZRxpc=",
+  "Hash": "G/VDVs0RWGUnZkL6hSCV0jXHL6MWT5H7//uTIY1c45w=",
   "Source": "Movflix",
   "BasePath": "_content/Movflix",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Movflix\\wwwroot",
+      "Source": "Movflix",
+      "ContentRoot": "C:\\Users\\ESQIN\\Desktop\\Movflix\\Movflix\\Movflix\\wwwroot\\",
+      "BasePath": "_content/Movflix",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\ESQIN\\Desktop\\Movflix\\Movflix\\Movflix\\wwwroot\\Templates\\Confirm.html",
+      "SourceId": "Movflix",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ESQIN\\Desktop\\Movflix\\Movflix\\Movflix\\wwwroot\\",
+      "BasePath": "_content/Movflix",
+      "RelativePath": "Templates/Confirm.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Templates\\Confirm.html"
+    }
+  ]
 }

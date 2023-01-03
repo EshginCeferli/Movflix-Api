@@ -3,6 +3,7 @@ using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+
 using Service.Services.DTOs.AppUser;
 using Service.Services.Interfaces;
 using System;
@@ -19,17 +20,26 @@ namespace Service.Services
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IEmailService _emailService;
         private readonly IMapper _mapper;
         private readonly ITokenService _tokenService;
+      
 
-
-        public AccountService(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IMapper mapper, ITokenService tokenService)
+        public AccountService(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IMapper mapper, ITokenService tokenService, IEmailService emailService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _mapper = mapper;
             _tokenService= tokenService;
+            _emailService = emailService;
             
+        }
+
+  
+
+        public async Task CreateRoleAsync(RoleDto roleDto)
+        {
+            await _roleManager.CreateAsync(new IdentityRole { Name = roleDto.Role });
         }
 
         public async Task<string?> LoginAsync(LoginDto loginDto)
@@ -55,13 +65,14 @@ namespace Service.Services
 
             await _userManager.CreateAsync(user, registerDto.Password);
 
-           
-
-
-            //await _userManager.AddToRoleAsync(user, "User");
+            await _userManager.AddToRoleAsync(user, "Admin");
 
         }
 
+        public async Task ConfirmEmail(string userId, string token)
+        {
+            await _emailService.ConfirmEmail(userId, token);
+        }
 
     }
 }

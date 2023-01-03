@@ -10,7 +10,9 @@ namespace Service.Services.Interfaces
     public interface IAccountService
     {
         Task RegisterAsync(RegisterDto registerDto);
-        Task<string?> LoginAsync(LoginDto loginDto);
+        Task ConfirmEmail(string userId, string token);
 
+        Task<string?> LoginAsync(LoginDto loginDto);
+        Task CreateRoleAsync(RoleDto roleDto);      
     }
 }

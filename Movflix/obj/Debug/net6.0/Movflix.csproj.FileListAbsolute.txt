@@ -81,3 +81,7 @@ C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.AspNet
 C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Movflix.staticwebassets.runtime.json
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\MailKit.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\MimeKit.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\BouncyCastle.Crypto.dll
