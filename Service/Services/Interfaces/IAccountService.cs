@@ -1,4 +1,5 @@
-﻿using Service.Services.DTOs.AppUser;
+﻿using Domain.Entities;
+using Service.Services.DTOs.AppUser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,13 @@ namespace Service.Services.Interfaces
     public interface IAccountService
     {
         Task RegisterAsync(RegisterDto registerDto);
-        Task ConfirmEmail(string userId, string token);
+        Task ConfirmEmailAsync(string userId, string token);
 
         Task<string?> LoginAsync(LoginDto loginDto);
-        Task CreateRoleAsync(RoleDto roleDto);      
+        Task<UserDto> GetUserByEmailAsync(string email);
+        Task CreateRoleAsync(RoleDto roleDto);
+        Task UpdatePasswordAsync(AppUser appUser, UpdatePasswordDto updatePasswordDto);
+        Task UpdateUserAsync(AppUser appUser, UpdateUserDto updateuserDto);
+
     }
 }

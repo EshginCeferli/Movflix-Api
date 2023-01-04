@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Service.Services.DTOs.Blog;
 using Service.Services.DTOs.Movie;
 using Service.Services.Interfaces;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace Movflix.Controllers
 {
@@ -25,6 +27,7 @@ namespace Movflix.Controllers
 
         [HttpPut]
         [Route("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update([FromRoute][Required] int id, MovieUpdateDto movieUpdateDto)
         {
             try
@@ -39,7 +42,10 @@ namespace Movflix.Controllers
             }
         }
 
+       
+
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete([Required] int id)
         {
             try

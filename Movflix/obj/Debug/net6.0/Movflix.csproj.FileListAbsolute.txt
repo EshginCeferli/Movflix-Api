@@ -85,3 +85,9 @@ C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Movflix.staticwe
 C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\MailKit.dll
 C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\MimeKit.dll
 C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Scrutor.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\ESQIN\Desktop\Movflix\Movflix\Movflix\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll

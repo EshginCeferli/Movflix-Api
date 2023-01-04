@@ -36,6 +36,11 @@ namespace Service.Services.Mappings
             CreateMap<BlogImageListDto, BlogImage>().ReverseMap();
 
             CreateMap<AppUser, RegisterDto>().ReverseMap();
+            CreateMap<UserDto, AppUser>().ReverseMap();
+            CreateMap<AppUser, UpdatePasswordDto>().ReverseMap();
+            CreateMap<AppUser, UpdateUserDto>().ReverseMap();
+
+
 
         }
     }

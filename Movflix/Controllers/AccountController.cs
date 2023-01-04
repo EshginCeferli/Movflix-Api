@@ -24,9 +24,15 @@ namespace Movflix.Controllers
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
             await _accountService.RegisterAsync(registerDto);
+
             var appUser = await _userManager.FindByEmailAsync(registerDto.Email);
+
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
+
             var link = Url.Action(nameof(ConfirmEmail), "Account", new { userId = appUser.Id, token }, Request.Scheme, Request.Host.ToString());
+
+            if (link is null) throw new NullReferenceException(nameof(link));
+
             _emailService.Register(registerDto, link);
 
             return Ok();
@@ -36,7 +42,7 @@ namespace Movflix.Controllers
         [HttpGet]       
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
-            await _accountService.ConfirmEmail(userId, token);
+            await _accountService.ConfirmEmailAsync(userId, token);
             return Redirect("https://localhost:7079/swagger/index.html");
         }
 
@@ -55,9 +61,52 @@ namespace Movflix.Controllers
             if (user is null) throw new ArgumentNullException();
 
             string forgotpasswordtoken = await _userManager.GeneratePasswordResetTokenAsync(user);
-            string url = "https://localhost:7079/forgotpassword/" + user.Email + "/token=" + forgotpasswordtoken;
+            string url = "http://localhost:3001/forgotpassword/" + user.Email + "/token=" + forgotpasswordtoken;
             _emailService.ForgotPassword(user, url, forgotPassword);
 
+            return Ok();
+        }
+
+
+        [HttpPost]        
+        public async Task<IActionResult> ResetPassword(ResetPasswordDto resetPassworddto)
+        {
+
+            var user = await _userManager.FindByEmailAsync(resetPassworddto.Email);
+
+            if (user is null) return NotFound();
+
+            await _userManager.ResetPasswordAsync(user, resetPassworddto.Token, resetPassworddto.Password);
+
+            return Ok();
+        }
+
+        [HttpGet]
+        [Route("{email}")]
+        public async Task<UserDto> GetUserByEmail([FromRoute] string email)
+        {
+            var user = await _accountService.GetUserByEmailAsync(email);
+
+            return user;
+        }
+
+
+        [HttpPut]
+        [Route("{email}")]
+        public async Task<IActionResult> UpdatePassword([FromRoute] string email, [FromBody] UpdatePasswordDto updatePasswordDto)
+        {
+            AppUser appUser = await _userManager.FindByEmailAsync(email);
+            await _accountService.UpdatePasswordAsync(appUser, updatePasswordDto);
+            return Ok();
+        }
+
+
+        [HttpPut]
+        [Route("{email}")]
+        public async Task<IActionResult> UpdateUser([FromRoute] string email, [FromBody] UpdateUserDto updateUserDto)
+        {
+            AppUser appUser = await _userManager.FindByEmailAsync(email);
+            await _accountService.UpdateUserAsync(appUser, updateUserDto);
             return Ok();
         }
 

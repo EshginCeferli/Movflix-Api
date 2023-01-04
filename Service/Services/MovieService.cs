@@ -3,6 +3,7 @@ using Domain.Entities;
 using Repository.Interfaces;
 using Service.Services.DTOs.Movie;
 using Service.Services.Interfaces;
+using System.Runtime.InteropServices;
 
 namespace Service.Services
 {
@@ -39,7 +40,8 @@ namespace Service.Services
         public async Task<MovieGetDto> GetByIdAsync(int id)
         {
             var mappedMovie = _mapper.Map<MovieGetDto>(await _repo.GetMovieById(id));
-
+            
+           
             return mappedMovie;
         }
 
@@ -75,6 +77,14 @@ namespace Service.Services
             await _repo.UpdateAsync(dbMovie);
         }
 
-      
+        
+        public async Task Rate(int id,string rating)
+        {
+            var movie = await _repo.GetMovieById(id);            
+            
+
+        }
+
+
     }
 }

@@ -33,9 +33,7 @@ namespace Service.Services
             _tokenService= tokenService;
             _emailService = emailService;
             
-        }
-
-  
+        }  
 
         public async Task CreateRoleAsync(RoleDto roleDto)
         {
@@ -65,14 +63,48 @@ namespace Service.Services
 
             await _userManager.CreateAsync(user, registerDto.Password);
 
-            await _userManager.AddToRoleAsync(user, "Admin");
+            await _userManager.AddToRoleAsync(user, "User");
 
         }
 
-        public async Task ConfirmEmail(string userId, string token)
+        public async Task ConfirmEmailAsync(string userId, string token)
         {
             await _emailService.ConfirmEmail(userId, token);
         }
 
+        public async Task<UserDto> GetUserByEmailAsync(string email)
+        {
+            var appuser = await _userManager.FindByEmailAsync(email);
+            var user = _mapper.Map<UserDto>(appuser);
+            return user;
+        }
+
+          public async Task UpdatePasswordAsync(AppUser appUser, UpdatePasswordDto updatePasswordDto)
+        {
+            var user = await _userManager.FindByIdAsync(appUser.Id);
+
+            await _userManager.ChangePasswordAsync(user, updatePasswordDto.CurrentPassword, updatePasswordDto.NewPassword);
+            var mappedUser = _mapper.Map(updatePasswordDto, user);
+            await _userManager.UpdateAsync(mappedUser);
+
+        }
+
+        public async Task UpdateUserAsync(AppUser appUser, UpdateUserDto updateUserDto)
+        {
+            var dbUser = await _userManager.FindByIdAsync(appUser.Id);
+            if (updateUserDto.FullName != null)
+            {
+                dbUser.FullName = updateUserDto.FullName;
+            }
+            if (updateUserDto.PhoneNumber != null)
+            {
+                dbUser.PhoneNumber = updateUserDto.PhoneNumber;
+            }
+            if (updateUserDto.UserName != null)
+            {
+                dbUser.UserName = updateUserDto.UserName;
+            }
+             await _userManager.UpdateAsync(dbUser);
+        }
     }
 }
