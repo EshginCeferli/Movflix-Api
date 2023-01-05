@@ -14,7 +14,7 @@ namespace Movflix.Controllers
 
         public MovieController(IMovieService movieService)
         {
-            _movieService =  movieService;
+            _movieService = movieService;
         }
 
         [HttpPost]
@@ -42,7 +42,7 @@ namespace Movflix.Controllers
             }
         }
 
-       
+
 
         [HttpDelete]
         [Authorize(Roles = "Admin")]
@@ -100,5 +100,13 @@ namespace Movflix.Controllers
             return Ok(await _movieService.SearchAsync(search));
         }
 
+        [HttpPost]
+        
+        public async Task<IActionResult> Rate([Required] int id, [FromQuery]float rate)
+        {
+           await _movieService.RateAsync(id, rate);         
+
+            return Ok();
+        }
     }
 }

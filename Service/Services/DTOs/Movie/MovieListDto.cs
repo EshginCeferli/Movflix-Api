@@ -14,9 +14,5 @@ namespace Service.Services.DTOs.Movie
         public int MovieCategoryId { get; set; }
         public MovieCategoryListDto? MovieCategory { get; set; }
     }
-    //public class MovieCategoryGetAllDto
-    //{
-    //    public int Id { get; set; }
-    //    public string? Name { get; set; }
-    //}
+  
 }

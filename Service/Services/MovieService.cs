@@ -77,14 +77,12 @@ namespace Service.Services
             await _repo.UpdateAsync(dbMovie);
         }
 
-        
-        public async Task Rate(int id,string rating)
+    
+
+        public async Task RateAsync(int id, float rate)
         {
-            var movie = await _repo.GetMovieById(id);            
+            await _repo.RateMovie(id, rate);  
             
-
         }
-
-
     }
 }

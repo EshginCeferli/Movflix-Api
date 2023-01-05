@@ -50,5 +50,15 @@ namespace Repository
 
             return searchMovie;
         }
+
+        public async Task RateMovie(int id, float rate)
+        {
+            var movie = await _entities.FirstOrDefaultAsync(m => m.Id == id);
+
+            movie.Rating += rate;
+
+            await _context.SaveChangesAsync();
+           
+        }
     }
 }

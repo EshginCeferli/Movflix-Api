@@ -10,6 +10,7 @@ namespace Domain.Entities
         public int Length { get; set; }
         public int ReleaseYear { get; set; }
         public string? Country { get; set; }
+        public float Rating { get; set; }
         public MovieCategory? MovieCategory { get; set; }
         public int MovieCategoryId { get; set; }
 

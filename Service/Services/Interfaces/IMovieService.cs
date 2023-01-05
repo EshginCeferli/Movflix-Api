@@ -12,5 +12,6 @@ namespace Service.Services.Interfaces
         Task UpdateAsync(int id, MovieUpdateDto movieUpdateDto);
         Task<MovieGetDto> GetByIdAsync(int id);
         Task<List<MovieListDto>> SearchAsync(string? searchText);
+        Task RateAsync(int id, float rate);
     }
 }

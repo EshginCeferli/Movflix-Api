@@ -1,4 +1,5 @@
 ﻿using Service.Services.DTOs.BlogImage;
+using Service.Services.DTOs.Comment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace Service.Services.DTOs.Blog
         public string? CreateDate { get; set; }
 
         public List<BlogImageListDto>? BlogImages { get; set; }
+        public List<CommentListDto>? Comments { get; set; }
     }
 }

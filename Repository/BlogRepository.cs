@@ -21,6 +21,7 @@ namespace Repository
         {
             var blog = await _entities
                 .Include(m => m.BlogImages)
+                .Include(m => m.Comments)
                  .FirstOrDefaultAsync(m => m.Id == id);
 
             if (blog == null) throw new NullReferenceException();
@@ -30,7 +31,7 @@ namespace Repository
         public async Task<List<Blog>> GetBlogWithImages()
         {
             var blogs = await _entities.
-                 Include(x => x.BlogImages)
+                 Include(x => x.BlogImages)                 
                  .ToListAsync();
 
             return blogs;

@@ -8,8 +8,8 @@ namespace Domain.Configurations
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
-            builder.Property(m => m.SoftDeleted).HasDefaultValue(false);
-            builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.UtcNow);
+            builder.Property(m => m.SoftDeleted).HasDefaultValue(false);            
+            builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.UtcNow.ToLongDateString());
 
             builder.HasQueryFilter(m => !m.SoftDeleted);
         }
