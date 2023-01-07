@@ -31,6 +31,7 @@ namespace Repository
 
             var movie = await _entities
                 .Include(m => m.MovieCategory)
+                .Include(m => m.Comments)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (movie == null) throw new NullReferenceException();
@@ -59,6 +60,44 @@ namespace Repository
 
             await _context.SaveChangesAsync();
            
+        }
+
+        public async Task<List<Movie>> GetMoviesByCategory(string category)
+        {
+            if (category is null) throw new NullReferenceException();
+
+            var result = await _entities
+                .Include(m => m.MovieCategory)
+                .Where(m => m.MovieCategory.Name == category)
+                .Take(10)
+                .ToListAsync();
+
+            if (result is null) throw new DllNotFoundException();
+            
+            return result;                
+        }
+
+        public async Task<List<Movie>> GetMoviesDescOrder()
+        {
+            var result = await _entities
+                .Include(m => m.MovieCategory)
+                .OrderByDescending(m => m.Id)
+                .Take(10)
+                .ToListAsync();
+
+            if (result is null) throw new NullReferenceException();
+
+            return result;
+        }
+
+        public async Task<List<Movie>> GetMoviesRateDesc()
+        {
+            var result = await _entities
+                .Include(m => m.MovieCategory)
+                .OrderByDescending(m => m.Rating)
+                .ToListAsync();
+
+            return result;
         }
     }
 }

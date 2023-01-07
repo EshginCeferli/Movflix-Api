@@ -100,13 +100,31 @@ namespace Movflix.Controllers
             return Ok(await _movieService.SearchAsync(search));
         }
 
-        [HttpPost]
-        
+        [HttpPost]        
         public async Task<IActionResult> Rate([Required] int id, [FromQuery]float rate)
         {
            await _movieService.RateAsync(id, rate);         
 
             return Ok();
+        }
+
+        [HttpGet]
+   
+        public async Task<IActionResult> GetMoviesByCategory([FromQuery] string category)
+        {       
+            return Ok(await _movieService.GetMoviesByCategoryAsync(category));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetMoviesDescOrder()
+        {
+            return Ok(await _movieService.GetMoviesDesOrderAsync());
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetMoviesRateOrder()
+        {
+            return Ok(await _movieService.GetMoviesRateOrderAsync());
         }
     }
 }

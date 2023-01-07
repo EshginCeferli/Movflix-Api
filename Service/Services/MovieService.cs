@@ -84,5 +84,32 @@ namespace Service.Services
             await _repo.RateMovie(id, rate);  
             
         }
+
+        public async Task<List<MovieListDto>> GetMoviesByCategoryAsync(string? category)
+        {
+            var dbMovies = await _repo.GetMoviesByCategory(category);
+
+            var mappedMovies = _mapper.Map<List<MovieListDto>>(dbMovies);
+
+            return mappedMovies;
+        }
+
+        public async Task<List<MovieListDto>> GetMoviesDesOrderAsync()
+        {
+            var dbMovies = await _repo.GetMoviesDescOrder();
+
+            var mappedMovies = _mapper.Map<List<MovieListDto>>(dbMovies);
+
+            return mappedMovies;
+        }
+
+        public async Task<List<MovieListDto>> GetMoviesRateOrderAsync()
+        {
+            var dbMovies = await _repo.GetMoviesRateDesc();
+
+            var mappedMovies = _mapper.Map<List<MovieListDto>>(dbMovies);
+
+            return mappedMovies;
+        }
     }
 }

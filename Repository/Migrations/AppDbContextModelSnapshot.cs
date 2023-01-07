@@ -105,7 +105,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("Wednesday, January 4, 2023");
+                        .HasDefaultValue("Friday, January 6, 2023");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -138,7 +138,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/04/2023 19:31:11");
+                        .HasDefaultValue("01/06/2023 10:52:57");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -170,16 +170,18 @@ namespace Repository.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("By")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Context")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreateDate")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/04/2023 19:31:11");
+                        .HasDefaultValue("Friday, January 6, 2023");
 
                     b.Property<bool>("SoftDeleted")
                         .ValueGeneratedOnAdd()
@@ -205,7 +207,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/04/2023 19:31:11");
+                        .HasDefaultValue("01/06/2023 10:52:57");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -247,7 +249,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/04/2023 19:31:11");
+                        .HasDefaultValue("01/06/2023 10:52:57");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -297,7 +299,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/04/2023 19:31:11");
+                        .HasDefaultValue("01/06/2023 10:52:57");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -311,6 +313,43 @@ namespace Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MovieCategory");
+                });
+
+            modelBuilder.Entity("Domain.Entities.MovieComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("By")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Context")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreateDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("Friday, January 6, 2023");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("SoftDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("MovieComment");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -479,6 +518,17 @@ namespace Repository.Migrations
                     b.Navigation("MovieCategory");
                 });
 
+            modelBuilder.Entity("Domain.Entities.MovieComment", b =>
+                {
+                    b.HasOne("Domain.Entities.Movie", "Movie")
+                        .WithMany("Comments")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -534,6 +584,11 @@ namespace Repository.Migrations
                 {
                     b.Navigation("BlogImages");
 
+                    b.Navigation("Comments");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Movie", b =>
+                {
                     b.Navigation("Comments");
                 });
 

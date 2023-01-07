@@ -10,8 +10,7 @@ namespace Service.Services.DTOs.Comment
     {
         public int Id { get; set; }
         public string? By { get; set; }
-        public string? Context { get; set; }
-        public int MyProperty { get; set; }
+        public string? Context { get; set; }        
         public string CreateDate { get; set; }
         public int BlogId { get; set; }
     }

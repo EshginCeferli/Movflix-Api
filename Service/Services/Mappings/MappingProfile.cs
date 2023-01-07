@@ -7,6 +7,7 @@ using Service.Services.DTOs.Comment;
 using Service.Services.DTOs.Movflix;
 using Service.Services.DTOs.Movie;
 using Service.Services.DTOs.MovieCategory;
+using Service.Services.DTOs.MovieComment;
 
 namespace Service.Services.Mappings
 {
@@ -25,6 +26,9 @@ namespace Service.Services.Mappings
 
             CreateMap<CommentCreateDto, Comment>().ReverseMap();
             CreateMap<CommentListDto, Comment>().ReverseMap();
+
+            CreateMap<MovieCommentCreateDto, MovieComment>().ReverseMap();
+            CreateMap<MovieCommentListDto, MovieComment>().ReverseMap();
 
 
             CreateMap<MovieCreateDto, Movie>().ReverseMap();

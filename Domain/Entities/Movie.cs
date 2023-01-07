@@ -13,6 +13,7 @@ namespace Domain.Entities
         public float Rating { get; set; }
         public MovieCategory? MovieCategory { get; set; }
         public int MovieCategoryId { get; set; }
+        public List<MovieComment>? Comments { get; set; }
 
     }
 }

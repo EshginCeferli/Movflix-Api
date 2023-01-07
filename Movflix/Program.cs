@@ -82,6 +82,10 @@ builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 
 builder.Services.AddScoped<ICommentService, CommentService>();
 
+builder.Services.AddScoped<IMovieCommentRepository, MovieCommentRepository>();
+
+builder.Services.AddScoped<IMovieCommentService, MovieCommentService>();
+
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 
 builder.Services.AddScoped<IMovieService, MovieService>();
