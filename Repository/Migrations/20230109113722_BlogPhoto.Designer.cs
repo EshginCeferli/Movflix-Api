@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository.Data;
 
@@ -11,9 +12,10 @@ using Repository.Data;
 namespace Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230109113722_BlogPhoto")]
+    partial class BlogPhoto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,9 +115,6 @@ namespace Repository.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Photo")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<bool>("SoftDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
@@ -141,7 +140,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/09/2023 11:46:17");
+                        .HasDefaultValue("01/09/2023 11:37:22");
 
                     b.Property<bool>("IsMain")
                         .HasColumnType("bit");
@@ -214,7 +213,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/09/2023 11:46:17");
+                        .HasDefaultValue("01/09/2023 11:37:22");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -244,7 +243,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/09/2023 11:46:17");
+                        .HasDefaultValue("01/09/2023 11:37:22");
 
                     b.Property<byte[]>("Image")
                         .IsRequired()
@@ -274,7 +273,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/09/2023 11:46:17");
+                        .HasDefaultValue("01/09/2023 11:37:22");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -327,7 +326,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/09/2023 11:46:17");
+                        .HasDefaultValue("01/09/2023 11:37:22");
 
                     b.Property<string>("Name")
                         .IsRequired()
