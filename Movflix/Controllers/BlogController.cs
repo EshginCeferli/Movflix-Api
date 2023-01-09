@@ -17,7 +17,7 @@ namespace Movflix.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> Create([FromBody] BlogCreateDto blogCreateDto)
         {
@@ -78,6 +78,12 @@ namespace Movflix.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _blogService.GetAllAsync());
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetRecentBlogs()
+        {
+            return Ok( await _blogService.GetRecentBlogsAsync());
         }
 
         [HttpGet]

@@ -21,6 +21,15 @@ namespace Service.Services
 
         public async Task CreateAsync(BlogCreateDto blogCreateDto)
         {
+            //List<BlogImage> images = new List<BlogImage>();
+
+            //foreach (var photo in blogCreateDto.BlogImages)
+            //{
+
+            //    images.Add(image);
+            //}
+
+
             var mappedData = _mapper.Map<Blog>(blogCreateDto);
             await _repo.CreateAsync(mappedData);
         }
@@ -43,6 +52,11 @@ namespace Service.Services
 
             return mappedBlog;
             
+        }
+
+        public async Task<List<BlogListDto>> GetRecentBlogsAsync()
+        {
+            return _mapper.Map<List<BlogListDto>>(await _repo.GetRecentBlogs());
         }
 
         public async Task SoftDeleteAsync(int id)

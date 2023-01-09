@@ -20,6 +20,7 @@ namespace Repository.Data
             modelBuilder.ApplyConfiguration(new MovieConfiguration());
             modelBuilder.ApplyConfiguration(new MovieCategoryConfiguration());
             modelBuilder.ApplyConfiguration(new MovieCommentConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactCongiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

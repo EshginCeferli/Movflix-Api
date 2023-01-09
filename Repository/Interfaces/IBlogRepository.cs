@@ -6,5 +6,6 @@ namespace Repository.Interfaces
     {
         Task<List<Blog>> GetBlogWithImages();
         Task<Blog> GetBlogById(int id);
+        Task<List<Blog>>GetRecentBlogs();
     }
 }

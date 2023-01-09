@@ -86,6 +86,14 @@ builder.Services.AddScoped<IMovieCommentRepository, MovieCommentRepository>();
 
 builder.Services.AddScoped<IMovieCommentService, MovieCommentService>();
 
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
+
+builder.Services.AddScoped<IContactService, ContactService>();
+
+builder.Services.AddScoped<IBannerRepository, BannerRepository>();
+
+builder.Services.AddScoped<IBannerService, BannerService>();
+
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 
 builder.Services.AddScoped<IMovieService, MovieService>();
@@ -124,6 +132,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 
 }
+
 
 app.UseCors();
 

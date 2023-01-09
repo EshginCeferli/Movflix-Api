@@ -11,5 +11,6 @@ namespace Service.Services.Interfaces
         Task SoftDeleteAsync(int id);
         Task UpdateAsync(int id, BlogUpdateDto blogUpdateDto);
         Task<BlogGetDto> GetByIdAsync(int id);
+        Task<List<BlogListDto>>GetRecentBlogsAsync();
     }
 }

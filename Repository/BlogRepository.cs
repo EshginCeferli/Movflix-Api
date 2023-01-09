@@ -36,5 +36,16 @@ namespace Repository
 
             return blogs;
         }
+
+        public async Task<List<Blog>> GetRecentBlogs()
+        {
+           var blogs = await _entities
+                .OrderByDescending(x => x.Id)
+               
+                .Take(3)
+                .ToListAsync();
+
+            return blogs;
+        }
     }
 }

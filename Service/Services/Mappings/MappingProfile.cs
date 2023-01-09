@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Domain.Entities;
 using Service.Services.DTOs.AppUser;
+using Service.Services.DTOs.Banner;
 using Service.Services.DTOs.Blog;
 using Service.Services.DTOs.BlogImage;
 using Service.Services.DTOs.Comment;
+using Service.Services.DTOs.Contact;
 using Service.Services.DTOs.Movflix;
 using Service.Services.DTOs.Movie;
 using Service.Services.DTOs.MovieCategory;
@@ -29,6 +31,13 @@ namespace Service.Services.Mappings
 
             CreateMap<MovieCommentCreateDto, MovieComment>().ReverseMap();
             CreateMap<MovieCommentListDto, MovieComment>().ReverseMap();
+
+            CreateMap<ContactListDto, Contact>().ReverseMap();
+            CreateMap<ContactUpdateDto, Contact>().ReverseMap();
+
+            CreateMap<BannerCreateDto, Banner>().ReverseMap();
+            CreateMap<BannerUpdateDto, Banner>().ReverseMap();
+            CreateMap<BannerListDto, Banner>().ReverseMap();
 
 
             CreateMap<MovieCreateDto, Movie>().ReverseMap();

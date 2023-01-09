@@ -11,6 +11,5 @@ namespace Repository.Interfaces
         Task<List<Movie>> GetMoviesDescOrder();
         Task<List<Movie>> GetMoviesRateDesc();
         Task RateMovie(int id, float rate);
-
     }
 }
