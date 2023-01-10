@@ -28,6 +28,11 @@ namespace Service.Services
 
         }
 
+        public async Task<ContactGetDto> GetAsync(int id)
+        {
+           return _mapper.Map<ContactGetDto>(await _repo.GetAsync(id));
+        }
+
         public async Task UpdateAsync(int id, ContactUpdateDto contactUpdateDto)
         {
             var dbContact = await _repo.GetAsync(id);

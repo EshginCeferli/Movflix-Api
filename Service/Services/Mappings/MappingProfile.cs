@@ -34,11 +34,13 @@ namespace Service.Services.Mappings
 
             CreateMap<ContactListDto, Contact>().ReverseMap();
             CreateMap<ContactUpdateDto, Contact>().ReverseMap();
+            CreateMap<ContactGetDto, Contact>().ReverseMap();
+       
 
             CreateMap<BannerCreateDto, Banner>().ReverseMap();
             CreateMap<BannerUpdateDto, Banner>().ReverseMap();
             CreateMap<BannerListDto, Banner>().ReverseMap();
-
+            CreateMap<BannerGetDto, Banner>().ReverseMap();
 
             CreateMap<MovieCreateDto, Movie>().ReverseMap();
             CreateMap<MovieUpdateDto, Movie>().ReverseMap();

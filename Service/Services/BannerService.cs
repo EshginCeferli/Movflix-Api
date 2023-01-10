@@ -42,11 +42,16 @@ namespace Service.Services
             return _mapper.Map<List<BannerListDto>>(await _repo.GetAllAsync());
         }
 
+        public async Task<BannerGetDto> GetAsync(int id)
+        {
+           return _mapper.Map<BannerGetDto>(await _repo.GetAsync(id));
+        }
+
         public async Task UpdateAsync(int id, BannerUpdateDto bannerUpdateDto)
         {
             var dbBanner = await _repo.GetAsync(id);
 
-            _mapper.Map(dbBanner, bannerUpdateDto);
+            _mapper.Map(bannerUpdateDto, dbBanner);
 
             await _repo.UpdateAsync(dbBanner);
         }

@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Service.Services.DTOs.Banner
 {
-    public class BannerListDto
-    {
-        public int Id { get; set; }
+    public class BannerGetDto
+    {       
         public byte[] Image { get; set; }
-        public string CreateDate { get; set; }
-
     }
 }

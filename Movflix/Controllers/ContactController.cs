@@ -40,5 +40,11 @@ namespace Movflix.Controllers
         {
             return Ok(await _contactService.GetAllAsync());
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Get([Required]int id)
+        {
+            return Ok(await _contactService.GetAsync(id));
+        }
     }
 }

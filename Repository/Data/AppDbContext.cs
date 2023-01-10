@@ -21,6 +21,8 @@ namespace Repository.Data
             modelBuilder.ApplyConfiguration(new MovieCategoryConfiguration());
             modelBuilder.ApplyConfiguration(new MovieCommentConfiguration());
             modelBuilder.ApplyConfiguration(new ContactCongiguration());
+            modelBuilder.ApplyConfiguration(new BannerConfiguration());
+
             base.OnModelCreating(modelBuilder);
         }
     }

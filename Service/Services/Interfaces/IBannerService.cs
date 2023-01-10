@@ -12,6 +12,7 @@ namespace Service.Services.Interfaces
     {
         Task CreateAsync(BannerCreateDto bannerCreateDto);
         Task<List<BannerListDto>> GetAllAsync();
+        Task<BannerGetDto> GetAsync(int id);
         Task UpdateAsync(int id, BannerUpdateDto bannerUpdateDto);
         Task DeleteAsync(int id);
 

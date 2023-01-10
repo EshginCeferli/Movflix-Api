@@ -13,6 +13,7 @@ namespace Service.Services.Interfaces
     {
         Task UpdateAsync(int id, ContactUpdateDto contactUpdateDto);
         Task<List<ContactListDto>> GetAllAsync();
+        Task<ContactGetDto> GetAsync(int id);
 
     }
 }
