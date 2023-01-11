@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Repository.Interfaces;
 using Service.Services.DTOs.MovieCategory;
 using Service.Services.Interfaces;
@@ -10,17 +11,20 @@ namespace Service.Services
     {
         private readonly IMovieCategoryRepository _repo;
         private readonly IMapper _mapper;
+       
 
         public MovieCategoryService(IMovieCategoryRepository repo, IMapper mapper)
         {
             _repo = repo;
             _mapper = mapper;
+           
         }
 
         public async Task CreateAsync(MovieCategoryCreateDto movieCategoryCreateDto)
         {
             var mappedData = _mapper.Map<MovieCategory>(movieCategoryCreateDto);
             await _repo.CreateAsync(mappedData);
+           
         }
 
         public async Task DeleteAsync(int id)

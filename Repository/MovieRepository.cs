@@ -82,7 +82,7 @@ namespace Repository
             var result = await _entities
                 .Include(m => m.MovieCategory)
                 .OrderByDescending(m => m.Id)
-                .Take(10)
+                .Take(8)
                 .ToListAsync();
 
             if (result is null) throw new NullReferenceException();
@@ -95,6 +95,7 @@ namespace Repository
             var result = await _entities
                 .Include(m => m.MovieCategory)
                 .OrderByDescending(m => m.Rating)
+                .Take(8)
                 .ToListAsync();
 
             return result;
