@@ -18,6 +18,8 @@ namespace Movflix.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Create([FromBody] MovieCreateDto movieCreateDto)
         {
             await _movieService.CreateAsync(movieCreateDto);
@@ -27,7 +29,7 @@ namespace Movflix.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update([FromRoute][Required] int id, MovieUpdateDto movieUpdateDto)
         {
             try

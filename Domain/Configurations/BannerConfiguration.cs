@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
 namespace Domain.Configurations
@@ -12,6 +12,9 @@ namespace Domain.Configurations
 
             builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.UtcNow);
             builder.Property(m => m.SoftDeleted).HasDefaultValue(false);
+
+            builder.Property(m => m.Image).IsRequired();
+
 
             builder.HasQueryFilter(m => !m.SoftDeleted);
         }

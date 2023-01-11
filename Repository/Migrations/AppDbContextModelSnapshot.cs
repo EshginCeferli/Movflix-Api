@@ -102,7 +102,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/09/2023 17:21:20");
+                        .HasDefaultValue("01/10/2023 19:05:05");
 
                     b.Property<byte[]>("Image")
                         .IsRequired()
@@ -127,18 +127,21 @@ namespace Repository.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("By")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreateDate")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("Monday, January 9, 2023");
+                        .HasDefaultValue("Tuesday, January 10, 2023");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Photo")
@@ -169,7 +172,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/09/2023 17:21:20");
+                        .HasDefaultValue("01/10/2023 19:05:05");
 
                     b.Property<bool>("IsMain")
                         .HasColumnType("bit");
@@ -213,7 +216,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("Monday, January 9, 2023");
+                        .HasDefaultValue("Tuesday, January 10, 2023");
 
                     b.Property<bool>("SoftDeleted")
                         .ValueGeneratedOnAdd()
@@ -242,7 +245,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/09/2023 17:21:20");
+                        .HasDefaultValue("01/10/2023 19:05:05");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -272,7 +275,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/09/2023 17:21:20");
+                        .HasDefaultValue("01/10/2023 19:05:05");
 
                     b.Property<byte[]>("Image")
                         .IsRequired()
@@ -302,7 +305,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/09/2023 17:21:20");
+                        .HasDefaultValue("01/10/2023 19:05:05");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -319,6 +322,7 @@ namespace Repository.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Photo")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Poster")
@@ -355,7 +359,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("01/09/2023 17:21:20");
+                        .HasDefaultValue("01/10/2023 19:05:05");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -391,7 +395,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("Monday, January 9, 2023");
+                        .HasDefaultValue("Tuesday, January 10, 2023");
 
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
@@ -406,6 +410,75 @@ namespace Repository.Migrations
                     b.HasIndex("MovieId");
 
                     b.ToTable("MovieComment");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Pricing", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreateDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("01/10/2023 19:05:05");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Quality")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Resolution")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Screen")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("SoftDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pricing");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Servise", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreateDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("01/10/2023 19:05:05");
+
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<bool>("SoftDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Servise");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

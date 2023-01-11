@@ -8,6 +8,8 @@ namespace Domain.Configurations
     {
         public void Configure(EntityTypeBuilder<BlogImage> builder)
         {
+            //builder.Property(m => m.Photo).IsRequired();
+
             builder.Property(m => m.SoftDeleted).HasDefaultValue(false);
             builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.UtcNow);
 

@@ -4,6 +4,7 @@ using Service.Services;
 using Service.Services.Interfaces;
 using Service.Services.DTOs.Banner;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Movflix.Controllers
 {
@@ -15,7 +16,7 @@ namespace Movflix.Controllers
             _bannerService = bannerService;
         }
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> Create([FromBody] BannerCreateDto bannerCreateDto)
         {
@@ -26,7 +27,7 @@ namespace Movflix.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update([FromRoute][Required] int id, BannerUpdateDto bannerUpdateDto)
         {
             try
@@ -43,7 +44,7 @@ namespace Movflix.Controllers
 
 
         [HttpDelete]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete([Required] int id)
         {
             try

@@ -10,6 +10,8 @@ using Service.Services.DTOs.Movflix;
 using Service.Services.DTOs.Movie;
 using Service.Services.DTOs.MovieCategory;
 using Service.Services.DTOs.MovieComment;
+using Service.Services.DTOs.Pricing;
+using Service.Services.DTOs.Service;
 
 namespace Service.Services.Mappings
 {
@@ -42,6 +44,17 @@ namespace Service.Services.Mappings
             CreateMap<BannerListDto, Banner>().ReverseMap();
             CreateMap<BannerGetDto, Banner>().ReverseMap();
 
+            CreateMap<ServiceCreateDto,Servise >().ReverseMap();
+            CreateMap<ServiceUpdateDto, Servise>().ReverseMap();
+            CreateMap<ServiceListDto, Servise>().ReverseMap();
+            CreateMap<ServiceGetDto, Servise>().ReverseMap();
+
+
+            CreateMap<PricingCreateDto, Pricing>().ReverseMap();
+            CreateMap<PricingUpdateDto, Pricing>().ReverseMap();
+            CreateMap<PricingGetDto, Pricing>().ReverseMap();
+            CreateMap<PricingListDto, Pricing>().ReverseMap();
+
             CreateMap<MovieCreateDto, Movie>().ReverseMap();
             CreateMap<MovieUpdateDto, Movie>().ReverseMap();
             CreateMap<MovieListDto, Movie>().ReverseMap();
@@ -59,8 +72,6 @@ namespace Service.Services.Mappings
             CreateMap<UserDto, AppUser>().ReverseMap();
             CreateMap<AppUser, UpdatePasswordDto>().ReverseMap();
             CreateMap<AppUser, UpdateUserDto>().ReverseMap();
-
-
 
         }
     }

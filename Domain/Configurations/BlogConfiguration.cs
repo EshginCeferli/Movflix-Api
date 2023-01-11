@@ -8,6 +8,11 @@ namespace Domain.Configurations
     {
         public void Configure(EntityTypeBuilder<Blog> builder)
         {
+            builder.Property(m => m.Name).IsRequired();
+            builder.Property(m => m.Description).IsRequired();
+            builder.Property(m => m.By).IsRequired();
+            //builder.Property(m => m.Photo).IsRequired();
+         
             builder.Property(m => m.SoftDeleted).HasDefaultValue(false);
             builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.UtcNow.ToLongDateString());
 

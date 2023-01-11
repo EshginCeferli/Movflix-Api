@@ -13,6 +13,8 @@ namespace Domain.Configurations
             builder.Property(m => m.Country).IsRequired();
             builder.Property(m => m.Description).IsRequired();
             builder.Property(m => m.Length).IsRequired();
+            builder.Property(m => m.ReleaseYear).IsRequired();
+            builder.Property(m => m.Photo).IsRequired();
             builder.Property(m => m.SoftDeleted).HasDefaultValue(false);
             builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.UtcNow);
 

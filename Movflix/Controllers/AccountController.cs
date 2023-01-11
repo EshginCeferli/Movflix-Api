@@ -43,7 +43,7 @@ namespace Movflix.Controllers
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
             await _accountService.ConfirmEmailAsync(userId, token);
-            return Redirect("https://localhost:7079/swagger/index.html");
+            return Redirect("http://localhost:3000/");
         }
 
         [HttpPost]

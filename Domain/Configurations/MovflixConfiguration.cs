@@ -8,9 +8,9 @@ namespace Domain.Configurations
     {
         public void Configure(EntityTypeBuilder<Movflix> builder)
         {
-         
+
             builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.UtcNow);
-         
+
 
             builder.HasQueryFilter(m => !m.SoftDeleted);
         }

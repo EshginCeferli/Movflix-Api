@@ -94,6 +94,14 @@ builder.Services.AddScoped<IBannerRepository, BannerRepository>();
 
 builder.Services.AddScoped<IBannerService, BannerService>();
 
+builder.Services.AddScoped<IPricingRepository, PricingRepostory>();
+
+builder.Services.AddScoped<IPricingService, PricingService>();
+
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+
+builder.Services.AddScoped<IServiseService, ServiseService>();
+
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 
 builder.Services.AddScoped<IMovieService, MovieService>();

@@ -9,10 +9,9 @@ namespace Domain.Configurations
         public void Configure(EntityTypeBuilder<MovieCategory> builder)
         {
             builder.Property(m => m.Name).IsRequired();
+
             builder.Property(m => m.SoftDeleted).HasDefaultValue(false);
             builder.Property(m => m.CreateDate).HasDefaultValue(DateTime.UtcNow);
-
-
             builder.HasQueryFilter(m => !m.SoftDeleted);
         }
     }
