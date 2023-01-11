@@ -118,6 +118,12 @@ namespace Movflix.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> RelatedMovies([FromQuery] int id)
+        {
+            return Ok(await _movieService.RelatedMoviesAsync(id));
+        }
+
+        [HttpGet]
         public async Task<IActionResult> GetMoviesDescOrder()
         {
             return Ok(await _movieService.GetMoviesDesOrderAsync());

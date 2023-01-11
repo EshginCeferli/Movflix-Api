@@ -77,6 +77,20 @@ namespace Repository
             return result;                
         }
 
+        public async Task<List<Movie>> RelatedMovies(int id)
+        {
+            var movie = await _entities.Include(m => m.MovieCategory)
+                .Where(m => m.Id == id).FirstOrDefaultAsync();
+
+            var movies = await _entities.Include(m => m.MovieCategory)
+                .Where(m => m.MovieCategoryId == movie.MovieCategoryId)
+                .ToListAsync();
+
+            return movies;              
+
+
+        }
+
         public async Task<List<Movie>> GetMoviesDescOrder()
         {
             var result = await _entities

@@ -13,6 +13,7 @@ namespace Service.Services.Interfaces
         Task<MovieGetDto> GetByIdAsync(int id);
         Task<List<MovieListDto>> SearchAsync(string? searchText);
         Task<List<MovieListDto>> GetMoviesByCategoryAsync(string? category);
+        Task<List<MovieListDto>> RelatedMoviesAsync(int id);
         Task<List<MovieListDto>> GetMoviesDesOrderAsync();
         Task<List<MovieListDto>> GetMoviesRateOrderAsync();
         Task RateAsync(int id, float rate);

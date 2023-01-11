@@ -17,7 +17,7 @@ namespace Movflix.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> Create([FromBody] BlogCreateDto blogCreateDto)
         {
@@ -28,7 +28,7 @@ namespace Movflix.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update([FromRoute][Required] int id, BlogUpdateDto blogUpdateDto)
         {
             try
@@ -44,7 +44,7 @@ namespace Movflix.Controllers
         }
 
         [HttpDelete]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete([Required] int id)
         {
             try

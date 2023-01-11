@@ -111,5 +111,14 @@ namespace Service.Services
 
             return mappedMovies;
         }
+
+        public async Task<List<MovieListDto>> RelatedMoviesAsync(int id)
+        {
+            var dbMovies = await _repo.RelatedMovies(id);
+
+            var mappedMovies = _mapper.Map<List<MovieListDto>>(dbMovies);
+
+            return mappedMovies;
+        }
     }
 }
